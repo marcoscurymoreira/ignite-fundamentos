@@ -4,6 +4,37 @@ import { Sidebar } from "./components/Sidebar"
 import styles from './App.module.css'
 import './global.css'
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/marcoscurymoreira.png',
+      name: 'Marcos Moreira',
+      role: 'Developer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2024-07-02 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/enesolucoes.png',
+      name: 'Ene Soluções',
+      role: 'Technology Company'
+    },
+    content: [
+      { type: 'paragraph', content: 'Boa, boa 👋' },
+      { type: 'paragraph', content: 'Parabéns pelo projeto! 🚀' },
+      { type: 'link', content: 'enesolucoes' },
+    ],
+    publishedAt: new Date('2024-06-12 20:00:00'),
+  },
+];
+
 export function App() {
 
   return (
@@ -13,14 +44,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-          author="Marcos Moreira"
-          content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius tempora obcaecati alias, nostrum id magni at expedita, molestiae quisquam veritatis nesciunt magnam enim rerum quaerat quas aliquam. Omnis, neque aperiam."
-          />
-          <Post
-          author="Marcos Moreira"
-          content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius tempora obcaecati alias, nostrum id magni at expedita, molestiae quisquam veritatis nesciunt magnam enim rerum quaerat quas aliquam. Omnis, neque aperiam."
-          />
+          {posts.map(post => {
+            return (
+              <Post 
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
