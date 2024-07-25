@@ -66,9 +66,14 @@ export function Post({author, publishedAt, content}) {
           placeholder='Deixe um comentário'
           onChange={handleNewCommentChange}
           value={newCommentText}
+          required
         />
         <footer>
-          <button type='submit'>Publicar</button>
+          <button
+            type='submit'
+          >
+            Publicar
+          </button>
         </footer>
       </form>
 
